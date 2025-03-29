@@ -1,7 +1,7 @@
 <?php
 $har = $argv[1] ?? null;
 if (\is_null($har)) {
-    exit('.har ファイルを指定してください。');
+    exit('第一引数に .har ファイルを指定してください。');
 }
 
 $src = \json_decode(\file_get_contents($har), true);
