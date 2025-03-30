@@ -20,7 +20,11 @@ foreach ($src['log']['entries'] as $entry) {
     $img = \file_get_contents($url);
     $info = \pathinfo($url);
     $ext = $info['extension'] ?? null;
-    // ファイル名に拡張子がない場合は header から取得する
+    // クエリパラメータ対策
+    if (!is_null($ext)) {
+        $ext = explode('?', $ext)[0];
+    }
+    // ファイル情報に拡張子がない場合は header から取得する
     if (\is_null($ext)) {
         $headers = \get_headers($url, 1);
         $ext = $extFromMimeType($headers['Content-Type']);
