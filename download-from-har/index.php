@@ -1,4 +1,5 @@
 <?php
+
 $har = $argv[1] ?? null;
 if (\is_null($har)) {
     exit('第一引数に .har ファイルを指定してください。');
